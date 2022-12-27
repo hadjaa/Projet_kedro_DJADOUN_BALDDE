@@ -6,9 +6,19 @@ created_dataset:
   type: pandas.CSVDataSet
   filepath: ./data/02_intermediate/dataset.csv
 
-dataset_resolution: 
+x_train:
   type: pandas.CSVDataSet
-  filepath: ./data/02_intermediate/datasetRes.csv
+  filepath: ./data/07_model_output/x_train.csv 
+x_test:
+  type: pandas.CSVDataSet
+  filepath: ./data/07_model_output/x_test.csv 
+y_train:
+  type: pandas.CSVDataSet
+  filepath: ./data/07_model_output/y_train.csv 
+y_test:
+  type: pandas.CSVDataSet
+  filepath: ./data/07_model_output/y_test.csv 
+
 
 
 

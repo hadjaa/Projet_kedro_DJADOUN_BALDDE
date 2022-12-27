@@ -7,6 +7,9 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import cv2
+from sklearn.model_selection import train_test_split
+from typing import Any, Tuple, Dict
+import sys
 
 ####Fonction pour compter le nombre total d'image###
 
@@ -49,12 +52,19 @@ def create_dataframe(base_path : str) -> pd.DataFrame:
                     k += 1  
     return data 
 
-###########Fonction pour verifier la resolution des images################
+def split_train_test_data(data: pd.DataFrame, test_size : float) -> Tuple:
+    x = []
+    y = []
+    np.set_printoptions(threshold=sys.maxsize)
+    for i, row in data.iterrows():
+        x.append(row['feature'])
+        y.append(row['target'])
+    x = np.array(x)
+        #x = np.append(x)
+    y = np.array(y)
+        #x = np.append(y)
+    pd.Series(y).value_counts()
+    x_updated = x.reshape(len(x), -1)
+    x_train, x_test, y_train, y_test = train_test_split(x_updated, y, test_size=test_size, shuffle=True)
 
-# def resolutionImg (data : pd.DataFrame):
-    
-#     for path in data['path'] :
-#             im = Image.open(path)
-#             width, height = im.size
-
-#     return width, height
+    return  pd.DataFrame(data=x_train, columns=['values']),  pd.DataFrame(data=x_test, columns=['values']),  pd.DataFrame(data=y_train, columns=['values']),  pd.DataFrame(data=y_test, columns=['values'])
