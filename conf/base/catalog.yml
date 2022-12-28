@@ -19,6 +19,10 @@ y_test:
   type: pandas.CSVDataSet
   filepath: ./data/07_model_output/y_test.csv 
 
+pred:
+  type: pandas.CSVDataSet
+  filepath: ./data/06_models/pred.csv
+
 
 
 
