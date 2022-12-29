@@ -56,48 +56,9 @@ def create_dataframe(base_path : str) -> pd.DataFrame:
                     data.iloc[k]["target"] = c
                     data.iloc[k]["patient_id"] = patient_id
                     k += 1  
+
     return data 
 
-#def update_culumn_dataframe(data: pd.DataFrame) -> pd.DataFrame:
-    
-    
-
-###################Split data#######################  
-
-def split_train_test_data(data: pd.DataFrame, test_size : float) -> Tuple:
-    x = []
-    y = []
-
-    for i, row in data.iterrows():
-        x.append(row['feature'])
-        y.append(row['target'])
-    x = np.array(x)
-        #x = np.append(x)
-    y = np.array(y)
-        #x = np.append(y)
-    pd.Series(y).value_counts()
-    x_updated = x.reshape(len(x), -1)
-    #split data
-    x_train, x_test, y_train, y_test = train_test_split(x_updated, y, test_size=test_size, shuffle=True)
-    return  pd.DataFrame(data=x_train, columns=['values']),  pd.DataFrame(data=x_test, columns=['values']),  pd.DataFrame(data=y_train, columns=['values']),  pd.DataFrame(data=y_test, columns=['values'])
-
-###################Train model SVM#######################  
-
-def support_vector_machine(x_train: pd.DataFrame, x_test: pd.DataFrame, y_train: pd.DataFrame):
-    #Model initialization
-    x_train['values'] = x_train['values'].apply(np.array)
-    x_test['values'] = x_test['values'].apply(np.array)
-    y_train['values'] = y_train['values'].apply(np.array)
-    print("== The type is", x_train.dtypes, x_test.dtypes, y_train.dtypes)
-    model =  SVC(C=0.1)
-    #Save the model with mlflow
-    mlflow.sklearn.log_model(model, "model")
-    ##train model
-    model.fit(x_train, y_train)
-    #Prediction des target avec la partie du test
-    y_pred = model.predict(x_test)
-   #Creation of the dataframe prediction
-    pred = pd.DataFrame(y_pred, columns=['values'])
-    
-
-    return pred
+def update_culumn_dataframe(data: pd.DataFrame) -> pd.DataFrame:
+    data.to_numpy()
+    return  data 

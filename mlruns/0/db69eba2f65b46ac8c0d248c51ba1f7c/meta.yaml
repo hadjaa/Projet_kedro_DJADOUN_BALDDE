@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/hadja/projetfinal/mlruns/0/db69eba2f65b46ac8c0d248c51ba1f7c/artifacts
+end_time: 1672336370873
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: db69eba2f65b46ac8c0d248c51ba1f7c
+run_uuid: db69eba2f65b46ac8c0d248c51ba1f7c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1672336361844
+status: 3
+tags: []
+user_id: hadja

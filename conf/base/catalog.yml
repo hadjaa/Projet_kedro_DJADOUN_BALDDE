@@ -6,6 +6,10 @@ created_dataset:
   type: pandas.CSVDataSet
   filepath: ./data/02_intermediate/dataset.csv
 
+dataset2: 
+  type: pandas.CSVDataSet
+  filepath: ./data/02_intermediate/dataset2.csv
+
 x_train:
   type: pandas.CSVDataSet
   filepath: ./data/07_model_output/x_train.csv 
