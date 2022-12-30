@@ -39,7 +39,7 @@ def nombreTotalImage (base_path : str) -> int:
     
 def create_dataframe(base_path : str) -> pd.DataFrame:
     total_images = nombreTotalImage(base_path)
-    data = pd.DataFrame(index=np.arange(0, total_images), columns=["patient_id", "path","feature", "target"])
+    data = pd.DataFrame(index=np.arange(0, total_images), columns=["patient_id","feature", "target"])
     k = 0
     folder = os.listdir(base_path)
     for n in range(len(folder)):
@@ -59,6 +59,3 @@ def create_dataframe(base_path : str) -> pd.DataFrame:
 
     return data 
 
-def update_culumn_dataframe(data: pd.DataFrame) -> pd.DataFrame:
-    data.to_numpy()
-    return  data 

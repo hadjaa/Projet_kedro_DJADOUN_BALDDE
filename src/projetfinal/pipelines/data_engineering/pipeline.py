@@ -4,8 +4,7 @@ generated using Kedro 0.18.3
 """
 
 from kedro.pipeline import Pipeline, node, pipeline
-from projetfinal.pipelines.data_engineering.nodes import nombreTotalImage, create_dataframe, update_culumn_dataframe
-
+from projetfinal.pipelines.data_engineering.nodes import nombreTotalImage, create_dataframe
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
@@ -21,10 +20,5 @@ def create_pipeline(**kwargs) -> Pipeline:
                 outputs="created_dataset",
                 name="create_dataframe"
             ),
-             node(
-                func=update_culumn_dataframe,
-                inputs=["created_dataset"],
-                outputs=["dataset2"],
-                name="update_culumn_dataframe"
-            ),
+            
     ])
