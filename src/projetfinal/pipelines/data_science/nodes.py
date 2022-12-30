@@ -6,9 +6,9 @@ generated using Kedro 0.18.3
 import pandas as pd
 import numpy as np
 #from pyexpat import model
-import cv2
+#import cv2
 from sklearn.model_selection import train_test_split
-from typing import Any, Tuple, Dict
+from typing import Tuple
 #import sys
 #from sklearn.decomposition import PCA
 from sklearn.svm import SVC
